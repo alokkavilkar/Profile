@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class='container' id='container'>
+        <h1>User profile</h1>
+        <img src='profile-picture' alt="user-profile">
+        <span>Name: </span><h3 id='name'>Alok Kavilkar</h3>
+        <hr />
+        <span>Email: </span><h3 id='email'>alokkavilkar1057@gmail.com</h3>
+        <hr />
+        <span>Interests: </span><h3 id='interests'>coding</h3>
+        <hr />
+        <button class='button' onclick="updateProfile()">Edit Profile</button>
+    </div>
+    <div class='container' id='container-edit'>
+        <h1>User profile</h1>
+        <img src='profile-picture' alt="user-profile">
+        <span>Name: </span><label for='input-name'></label><input type="text" id='input-name' value='Anna Smith' />
+        <hr />
+        <span>Email: </span><label for='input-email'></label><input type="email" id='input-email' value='anna.smith@example.com' />
+        <hr />
+        <span>Interests: </span><label for='input-interests'></label><input type="text" id='input-interests' value='coding' />
+        <hr />
+        <button class='button' onclick="handleUpdateProfileRequest()">Update Profile</button>
+    </div>
+
+    <script>
+        function updateProfile() {
+            const contEdit = document.getElementById('container-edit');
+            const cont = document.getElementById('container');
+
+            // Set the input values to the current profile values
+            document.getElementById('input-name').value = document.getElementById('name').textContent;
+            document.getElementById('input-email').value = document.getElementById('email').textContent;
+            document.getElementById('input-interests').value = document.getElementById('interests').textContent;
+
+            cont.style.display = 'none';
+            contEdit.style.display = 'block';
+        }
+
+        // Function to handle updating the profile
+        async function handleUpdateProfileRequest() {
+            const contEdit = document.getElementById('container-edit');
+            const cont = document.getElementById('container');
+
+            // Get the values from the input fields
+            const name = document.getElementById('input-name').value;
+            const email = document.getElementById('input-email').value;
+            const interests = document.getElementById('input-interests').value;
+
+            // Update the profile information displayed on the page
+            document.getElementById('name').textContent = name;
+            document.getElementById('email').textContent = email;
+            document.getElementById('interests').textContent = interests;
+
+            cont.style.display = 'block';
+            contEdit.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
