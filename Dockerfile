@@ -5,5 +5,6 @@ ENV MONGO_DB_USERNAME=admin \
 
 WORKDIR /app
 COPY . /app/
+RUN npm i
 ENTRYPOINT [ "node" ]
 CMD [ "server.js" ]
