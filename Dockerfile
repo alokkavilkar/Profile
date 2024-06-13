@@ -1,4 +1,4 @@
-FROM node:13-alpine
+FROM node:14
 
 ENV MONGO_DB_USERNAME=admin \
     MONGO_DB_PASSWORD=password
